@@ -1,9 +1,9 @@
 %define version 0.3.0
-%define commit 755d61274a44fc497abf9acc2556071fa8deda2d
+%define commit af3b7349b322169f5e57ce30da760e50d94644cc
 Name: nvidia-xrun
 # A git hash used in the version should start with "g" and then
 # proceed with the first 7 characters of the commit message.
-Version: %{version}_g755d612
+Version: %{version}+79
 Release: 1%{?dist}
 Summary: Utility to run separate X with discrete nvidia graphics with full performance.
 License: GNU GPLv2
@@ -39,12 +39,15 @@ install -pm 644 %{_builddir}/nvidia-xrun-%{commit}/nvidia-xrun-pm.service %{buil
 %files
 %{_bindir}/nvidia-xrun
 %{_sysconfdir}/X11/nvidia-xorg.conf
-%{_sysconfdir}/X11/xinit
 %{_sysconfdir}/X11/xinit/nvidia-xinitrc
 %{_sysconfdir}/default/nvidia-xrun
 %{_unitdir}/nvidia-xrun-pm.service
 
 %changelog
+* Mon Jun 24 2019 Luke Short <ekultails@gmail.com> 0.3.0+79-1
+- Switch to using the standardized GitVersion guidelines for the RPM version
+- Update to the latest commit (af3b7349)
+
 * Sun May 05 2019 Luke Short <ekultails@gmail.com> 0.3.0_g755d612-1
 - Use commit hash for the source
 - Update to the latest commit
